@@ -17,7 +17,16 @@ var fellowship = {
     "The Shire", "Rivendell", "Mordor"
   ],
   makeMiddleEarth: function(lands) {
-    console.log(lands)
+    var text, header;
+    var element = document.createElement("article");
+
+    this.lands.forEach(function(i){
+      header = document.createElement("h1");
+      text = document.createTextNode(i);
+
+      element.appendChild(header).appendChild(text);
+    });
+    document.getElementById("middle-earth").appendChild(element);
     // create a section tag with an id of middle-earth
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
@@ -46,3 +55,11 @@ var fellowship = {
     // after each character is added make an alert that they have joined your party
   }
 }
+
+// var element = document.createElement("article");
+// var header = document.createElement("h1");
+// var text = document.createTextNode("this is some text");
+// element.appendChild(header).appendChild(text);
+// document.getElementById("middle-earth").appendChild(element);
+
+fellowship.makeMiddleEarth();
