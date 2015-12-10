@@ -1,3 +1,5 @@
+var midEarth = document.getElementById('middle-earth');
+
 // Dramatis Personae
 var fellowship = {
   hobbits: [
@@ -17,15 +19,29 @@ var fellowship = {
     "The Shire", "Rivendell", "Mordor"
   ],
   makeMiddleEarth: function(lands) {
-    console.log(lands)
-    // create a section tag with an id of middle-earth
+    console.log(lands);
+    // create a section tag with an id of middle-earth: Done
     // add each land as an article tag
+
+    for (i=0;i<lands.length; i++){
+      midEarth.innerHTML += "<article> <h1>" + lands[i] +"</h1></article>";
+    }
     // inside each article tag include an h1 with the name of the land
     // append middle-earth to your document body
   },
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
+    var ul = document.createElement('ul');
+    hobbits.forEach(function(x){
+      var li = document.createElement('li');
+      var text = document.createTextNode(x);
+      li.appendChild(text);
+      ul.appendChild(li);
+    });
+    document.body.appendChild(ul);
+
     // give each hobbit a class of hobbit
+    document.getElementsByTagName('li').classList = 'hobbit';
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
