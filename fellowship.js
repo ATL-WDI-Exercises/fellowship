@@ -50,6 +50,9 @@ var fellowship = {
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
     // add the ring as a child of Frodo
+    var div = document.createElement('div', {'id': 'the-ring'});
+    var frodo = document.getElementById('shirelings').firstChild;
+    frodo.appendChild(div);
   },
   makeBuddies: function(buddies) {
     // create an aside tag
@@ -59,7 +62,7 @@ var fellowship = {
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
   },
-  forgeTheFellowShip: function() {
+  forgeTheFellowship: function() {
     // move the hobbits and the buddies to Rivendell
     // create a new div called 'the-fellowship'
     // add each hobbit and buddy one at a time to 'the-fellowship'
