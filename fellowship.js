@@ -19,13 +19,31 @@ var fellowship = {
   makeMiddleEarth: function(lands) {
     console.log(lands)
     // create a section tag with an id of middle-earth
+    var midEarthSection = document.createElement("section");
+    midEarthSection.setAttribute("id", "middle-earth");
     // add each land as an article tag
-    // inside each article tag include an h1 with the name of the land
+    for ( var i = 0; i < lands.length; i++) {
+      var article = document.createElement("article");
+      var h1 = document.createElement("h1");
+      // inside each article tag include an h1 with the name of the land
+      h1.innerHTML = lands[i];
+      article.appendChild(h1);
+      midEarthSection.appendChild(article);
+      document.querySelector("#middle-earth");
+    }
     // append middle-earth to your document body
+    document.body.appendChild(midEarthSection);
   },
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
-    // give each hobbit a class of hobbit
+    var ul = document.createElement("ul");
+    for ( var i = 0; i < hobbits.length; i++) {
+      var li = document.createElement("li");
+      li.innerHTML = hobbits[i];
+      // give each hobbit a class of hobbit
+      li.setAttribute("class", "hobbit");
+      ul.appendChild(li);
+    }
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
