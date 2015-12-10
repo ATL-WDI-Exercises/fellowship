@@ -24,6 +24,7 @@ var fellowship = {
     var midEarth = document.getElementById('middle-earth');
     for (var i = 0; i < lands.length; i++) {
     var article = document.createElement("article");
+    article.id = lands[i];
     var h1 = document.createElement("h1");
     var newContent = document.createTextNode(lands[i]);
     midEarth.appendChild(article);
@@ -35,6 +36,15 @@ var fellowship = {
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
+    var ul = document.createElement('ul');
+    var shire = document.getElementById('The Shire');
+    shire.appendChild(ul);
+    /*for (var i = 0; i < hobbits.length; i++) {
+        var list = document.getElementById('shirelings');
+        var newnode = document.createElement('li');
+        list.appendChild(newnode);
+        newnode.innerText = hobbits[i];
+    }*/
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
@@ -57,3 +67,8 @@ var fellowship = {
 }
 
 document.body.onload = fellowship.makeMiddleEarth(fellowship.lands);
+document.body.onload = fellowship.makeHobbits(fellowship.hobbits);
+document.body.onload = fellowship.keepItSecretKeepItSafe();
+document.body.onload = fellowship.makeBuddies(fellowship.buddies);
+document.body.onload = fellowship.beautifulStranger();
+document.body.onload = fellowship.forgeTheFellowship();
