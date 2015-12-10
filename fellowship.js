@@ -58,9 +58,29 @@ var fellowship = {
     // create an aside tag
     // display an unordered list of buddies in the aside
     // insert your aside before rivendell
+    var aside = document.createElement('aside');
+    aside.id = 'council';
+    rivendell = document.getElementById('Rivendell')
+    var midEarth = document.getElementById('middle-earth');
+    var shire = document.getElementById('The Shire');
+    shire.appendChild(aside);
+    var ul = document.createElement('ul');
+    ul.id = "buds";
+    council = document.getElementById('council')
+    council.appendChild(ul);
+    for (var i = 0; i < buddies.length; i++) {
+        var list = document.getElementById('buds');
+        var newnode = document.createElement('li');
+        list.appendChild(newnode);
+        newnode.innerText = buddies[i];
+    }
   },
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
+    var buds = document.getElementById('buds');
+    ranger = buds.childNodes[3];
+    ranger.innerText = "Aragorn";
+
   },
   forgeTheFellowship: function() {
     // move the hobbits and the buddies to Rivendell
