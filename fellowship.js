@@ -39,10 +39,13 @@ var fellowship = {
       ul.appendChild(li);
     });
     document.body.appendChild(ul);
-    var hobbitArr = document.getElementsByTagName('li');
+    var hobbitArr = document.querySelectorAll('li');
     // give each hobbit a class of hobbit
     for(i=0;i<hobbitArr.length;i++){
+      if (hobbitArr[i].parentNode.parentNode.nodeName !== 'ASIDE'){
         hobbitArr[i].className = 'hobbit';
+      }
+
     }
   },
   keepItSecretKeepItSafe: function() {
@@ -64,7 +67,8 @@ var fellowship = {
     });
 
     aside.appendChild(ul);
-    document.body.appendChild(aside);
+    var rivendell = document.getElementsByTagName('article')[1];
+    midEarth.insertBefore(aside, rivendell);
     // display an unordered list of buddies in the aside
     // insert your aside before rivendell
   },
@@ -75,8 +79,28 @@ var fellowship = {
   },
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
+
+    var allFellowship = document.querySelectorAll('li');
+    var ul = document.createElement('ul');
+
     // create a new div called 'the-fellowship'
+
+    var div = document.createElement('div');
+    var rivendell = document.getElementsByTagName('article')[1];
+    var theFellowship = rivendell.appendChild(div);
+    theFellowship.className = "the-fellowship";
+
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
+    theFellowship.appendChild(ul);
+    for (var i = 0; i < allFellowship.length; i++) {
+      ul.appendChild(allFellowship[i]);
+      alert(allFellowship[i].innerHTML + " has joined your party!");
+    }
+
   }
 };
+
+fellowship.makeMiddleEarth(fellowship.lands);
+fellowship.makeBuddies(fellowship.buddies);
+fellowship.makeHobbits(fellowship.hobbits);
