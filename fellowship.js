@@ -37,14 +37,15 @@ var fellowship = {
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
     var ul = document.createElement('ul');
+    ul.id = "shirelings";
     var shire = document.getElementById('The Shire');
     shire.appendChild(ul);
-    /*for (var i = 0; i < hobbits.length; i++) {
+    for (var i = 0; i < hobbits.length; i++) {
         var list = document.getElementById('shirelings');
         var newnode = document.createElement('li');
         list.appendChild(newnode);
         newnode.innerText = hobbits[i];
-    }*/
+    }
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
