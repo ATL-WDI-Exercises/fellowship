@@ -1,5 +1,6 @@
 // Dramatis Personae
-var fellowship = {
+
+/*var fellowship = {
   hobbits: [
     "Frodo Baggins",
     "Samwise 'Sam' Gamgee",
@@ -12,17 +13,33 @@ var fellowship = {
     "Gimli",
     "Strider",
     "Boromir"
-  ],
-  lands: [
+  ],*/
+
+  var lands = [
     "The Shire", "Rivendell", "Mordor"
-  ],
-  makeMiddleEarth: function(lands) {
+  ];
+  function makeMiddleEarth(lands) {
     console.log(lands)
     // create a section tag with an id of middle-earth
     // add each land as an article tag
     // inside each article tag include an h1 with the name of the land
     // append middle-earth to your document body
-  },
+    var newSection = document.createElement("section");
+
+    for( i = 0 ; i < lands.length ; i++) {
+
+        var newArticle = document.createElement("article");
+        newSection.appendChild(newArticle);
+        var newH1 = document.createElement("h1");
+        newArticle.appendChild(newH1);
+        var newText = document.createTextNode(lands[i]);
+        newH1.appendChild(newText);
+        }
+
+    var currentSpot = document.querySelector("body");
+    currentSpot.appendChild(newSection);
+
+ }/*,
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
     // give each hobbit a class of hobbit
@@ -45,4 +62,5 @@ var fellowship = {
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
   }
-}
+}*/
+makeMiddleEarth(lands);
