@@ -17,28 +17,57 @@ var fellowship = {
     "The Shire", "Rivendell", "Mordor"
   ],
   makeMiddleEarth: function(lands) {
-    var text, header;
-    var element = document.createElement("article");
+    // Set parent element to add into
+    var parent = document.getElementById("middle-earth");
 
-    this.lands.forEach(function(i){
-      header = document.createElement("h1");
-      text = document.createTextNode(i);
+    // Create article element
+    var article = document.createElement("article");
 
-      element.appendChild(header).appendChild(text);
+    // iterate over lands and insert them into h1 elements.
+    lands.forEach(function(land) {
+      var header = document.createElement("h1");
+      var text = document.createTextNode(land);
+      article.appendChild(header).appendChild(text);
     });
-    document.getElementById("middle-earth").appendChild(element);
-    // create a section tag with an id of middle-earth
-    // add each land as an article tag
-    // inside each article tag include an h1 with the name of the land
-    // append middle-earth to your document body
+    // add completed article into DOM
+    parent.appendChild(article);
   },
+
   makeHobbits: function(hobbits) {
-    // display an unordered list of hobbits in the shire
-    // give each hobbit a class of hobbit
+    // Set article as parent element
+    var parent = document.querySelector("#middle-earth article");
+
+    // create ul element
+    var ul = document.createElement("ul");
+
+    // iterate over hobbit array and insert into li elements
+    hobbits.forEach(function(hobbit) {
+      var li = document.createElement("li");
+
+      // add class to every li element
+      var hobbitClass = document.createAttribute("class");
+      hobbitClass.value = "hobbit";
+      li.setAttributeNode(hobbitClass);
+
+      var text = document.createTextNode(hobbit);
+      ul.appendChild(li).appendChild(text);
+    });
+    //add completed list into DOM
+    parent.insertBefore(ul, parent.children[1]);
   },
   keepItSecretKeepItSafe: function() {
-    // create a div with an id of 'the-ring'
-    // add the ring as a child of Frodo
+      // set parent element
+      var parent = document.querySelector("li.hobbit");
+
+      // Create the ring
+      var theRing = document.createElement("div");
+
+      // Give ring id of "the-ring"
+      var ringId = document.createAttribute("id");
+      ringId.value = "the-ring";
+      theRing.setAttributeNode(ringId);
+
+      parent.insertBefore(theRing, parent.children[1]);
   },
   makeBuddies: function(buddies) {
     // create an aside tag
@@ -56,10 +85,9 @@ var fellowship = {
   }
 }
 
-// var element = document.createElement("article");
-// var header = document.createElement("h1");
-// var text = document.createTextNode("this is some text");
-// element.appendChild(header).appendChild(text);
-// document.getElementById("middle-earth").appendChild(element);
-
-fellowship.makeMiddleEarth();
+fellowship.makeMiddleEarth(fellowship.lands);
+fellowship.makeHobbits(fellowship.hobbits);
+fellowship.keepItSecretKeepItSafe();
+fellowship.makeBuddies(fellowship.buddies);
+fellowship.beautifulStranger();
+fellowship.forgeTheFellowShip();
