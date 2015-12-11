@@ -70,7 +70,7 @@ var fellowship = {
     // create a new div called 'the-fellowship'
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
-    var moveBuddies = document.getElementsByTagName('aside').style.display = 'none';
+    $('ul').hide();
     var theFellowship = document.createElement('div');
     theFellowship.id = 'the-fellowship';
     var rivendell = document.getElementsByTagName('article')[1];
