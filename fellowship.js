@@ -1,4 +1,5 @@
 // Dramatis Personae
+
 var fellowship = {
   hobbits: [
     "Frodo Baggins",
@@ -29,7 +30,6 @@ var fellowship = {
       h1.innerHTML = lands[i];
       article.appendChild(h1);
       midEarthSection.appendChild(article);
-      document.querySelector("#middle-earth");
     }
     // append middle-earth to your document body
     document.body.appendChild(midEarthSection);
@@ -44,6 +44,7 @@ var fellowship = {
       li.setAttribute("class", "hobbit");
       ul.appendChild(li);
     }
+    // Are we supposed to add the below append?
     document.body.appendChild(ul);
   },
   keepItSecretKeepItSafe: function() {
@@ -71,12 +72,31 @@ var fellowship = {
   },
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
-
+    var buddyList = document.querySelector("aside ul").childNodes;
+    buddyList[3].textContent = "Aragorn";
   },
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
+    var li = document.querySelectorAll("li");
+    //document.querySelector("aside ul");
     // create a new div called 'the-fellowship'
+    var ul = document.createElement("ul");
+    var div = document.createElement("div");
+    div.setAttribute("id", "the-fellowship");
+    document.getElementsByTagName("article")[1].appendChild(div);
+    var div = document.getElementById("the-fellowship");
+    div.appendChild(ul);
     // add each hobbit and buddy one at a time to 'the-fellowship'
+    for (var i = 0; i < li.length; i++) {
+      ul.appendChild(li[i]);
+      alert(li[i].innerHTML + " has joined my party");
+    }
+
+
     // after each character is added make an alert that they have joined your party
   }
 }
+
+fellowship.makeMiddleEarth(fellowship.lands);
+fellowship.makeHobbits(fellowship.hobbits);
+fellowship.makeBuddies(fellowship.buddies);
