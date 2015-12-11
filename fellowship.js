@@ -52,6 +52,7 @@ var fellowship = {
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
     $('#Strider').html('Aragorn');
+    fellowship.buddies[3] = 'Aragorn';
   },
   forgeTheFellowShip: function() {
     // move the hobbits and the buddies to Rivendell
