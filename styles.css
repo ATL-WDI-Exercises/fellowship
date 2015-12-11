@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'ringbearermedium';
+  src: url('fonts/ringm___-webfont.eot');
+  src: url('fonts/ringm___-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/ringm___-webfont.woff2') format('woff2'),
+       url('fonts/ringm___-webfont.woff') format('woff'),
+       url('fonts/ringm___-webfont.ttf') format('truetype'),
+       url('fonts/ringm___-webfont.svg#ringbearermedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  background-color: #efefef;
+}
+
+body {
+  font-family: 'ringbearermedium', serif;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+article {
+  min-height: 300px;
+  width: 100%;
+  padding: 20px;
+  margin: 40px auto;
+  text-align: center;
+  background-size: cover;
+  border: 5px solid #333;
+}
+
+h1 {
+  font-size: 60px;
+  margin-top: 0;
+}
+
+ul {
+  text-align: left;
+}
+
+ul li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 24px;
+}
+
+article:first-of-type {
+  background-image: url('img/shire.jpg');
+}
+
+article:nth-of-type(2) {
+  background-image: url('img/rivendell.jpg');
+}
+
+article:last-of-type {
+  background-image: url('img/mordor.jpg');
+}
+
+#the-fellowship {
+  background-image: url('img/fellowship.jpg');
+  background-size:cover;
+  background-position: center;
+  padding: 95px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #eee;
+}
