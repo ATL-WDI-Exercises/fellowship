@@ -38,7 +38,7 @@ var fellowship = {
       li.appendChild(text);
       ul.appendChild(li);
     });
-    document.body.appendChild(ul);
+    document.querySelector('h1').parentNode.appendChild(ul);
     var hobbitArr = document.querySelectorAll('li');
 
     // give each hobbit a class of hobbit
