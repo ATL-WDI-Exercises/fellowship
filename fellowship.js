@@ -39,23 +39,24 @@ var fellowship = {
   makeHobbits: function(hobbits) {
     // display an unordered list of hobbits in the shire
     var list = document.createElement('ul');
-    var locales = document.getElementsByTagName('article')[1];
-    var localeNames = document.getElementsByTagName('h1')[1];
+    var shire = document.getElementsByTagName('article')[0];
 
     hobbits.forEach(function(h){
       var hobbit = document.createElement('li');
       var name = document.createTextNode(h);
       hobbit.appendChild(name);
+
       // give each hobbit a class of hobbit
       hobbit.setAttribute('class','hobbit');
       list.appendChild(hobbit);
     });
 
-     locales.insertBefore(list, localeNames);
+    shire.appendChild(list);
   },
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
     var secret = document.createElement('div');
+
     secret.setAttribute('id', 'the-ring');
 
     // add the ring as a child of Frodo
@@ -77,15 +78,17 @@ var fellowship = {
     buddiesAside.appendChild(buddiesList);
 
     // insert your aside before rivendell
-    var locales = document.getElementsByTagName('article')[1];
-    var localeNames = document.getElementsByTagName('h1')[1];
-    locales.insertBefore(buddiesAside, localeNames);
+    var rivendell = document.getElementsByTagName('article')[1];
+    var middleEarth = document.getElementById('middle-earth');
+
+    middleEarth.insertBefore(buddiesAside, rivendell);
   },
   beautifulStranger: function() {
     // change the buddy 'Strider' textnode to "Aragorn"
     var strangerParent = document.querySelectorAll('li')[7];
 
     strangerParent.innerHTML = 'Aragorn';
+
   },
   forgeTheFellowShip: function() {
     // create a new div called 'the-fellowship'
@@ -96,6 +99,8 @@ var fellowship = {
 
     // move the hobbits and the buddies to Rivendell
     var rivendell = document.getElementsByTagName('h1')[1];
+
+    fellowship.buddies.splice(3,1, 'Aragorn');
 
     fellowship.buddies.forEach(function(b) {
       fellow = document.createElement('div');
@@ -122,7 +127,8 @@ var fellowship = {
       pastTravels[i].style.display = 'none';
     }
 
-    rivendell.appendChild(fellowshipForged);
+    var locales = document.getElementsByTagName('article')[1];
+    locales.appendChild(fellowshipForged);
   }
 }
 
@@ -131,4 +137,5 @@ fellowship.makeHobbits(fellowship.hobbits);
 fellowship.keepItSecretKeepItSafe();
 fellowship.makeBuddies(fellowship.buddies);
 fellowship.beautifulStranger();
-fellowship.forgeTheFellowShip();
+setTimeout(fellowship.forgeTheFellowShip, 1200);
+
