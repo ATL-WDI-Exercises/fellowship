@@ -50,7 +50,8 @@ var fellowship = {
   keepItSecretKeepItSafe: function() {
     // create a div with an id of 'the-ring'
     // add the ring as a child of Frodo
-    var div = document.createElement('div', {'id': 'the-ring'});
+    var div = document.createElement('div');
+    div.id = 'the-ring';
     var frodo = document.getElementById('shirelings').firstChild;
     frodo.appendChild(div);
   },
@@ -87,9 +88,37 @@ var fellowship = {
     // create a new div called 'the-fellowship'
     // add each hobbit and buddy one at a time to 'the-fellowship'
     // after each character is added make an alert that they have joined your party
+    var rivendell = document.getElementById('Rivendell');
+    var fellowship = document.createElement('div');
+    var hobbitses = document.getElementById('shirelings');
+    var peoples = document.getElementById('buds');
+    fellowship.id = 'the-fellowship';
+    rivendell.appendChild(hobbitses);
+    rivendell.appendChild(peoples);
+    rivendell.appendChild(fellowship);
+    var h1 = document.createElement("h1");
+    var ul = document.createElement("ul");
+    ul.id = "fellows";
+    var newContent = document.createTextNode("The Fellowship");
+    rivendell.appendChild(h1);
+    rivendell.appendChild(ul);
+    h1.appendChild(newContent);
+    var fellows = document.getElementById('fellows');
+    var fellow = document.querySelectorAll('li');
+    h1.appendChild(newContent);
+      for (var i = 0; i < fellow.length; i++) {
+        fellows.appendChild(fellow[i]);
+      }
   }
 }
 
+/*for (var i = 0; i < hobbits.length; i++) {
+        var list = document.getElementById('shirelings');
+        var newnode = document.createElement('li');
+        list.appendChild(newnode);
+        newnode.innerText = hobbits[i];
+    }
+*/
 document.body.onload = fellowship.makeMiddleEarth(fellowship.lands);
 document.body.onload = fellowship.makeHobbits(fellowship.hobbits);
 document.body.onload = fellowship.keepItSecretKeepItSafe();
