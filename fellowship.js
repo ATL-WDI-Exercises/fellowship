@@ -113,6 +113,6 @@ var fellowship = {
     this.beautifulStranger();
     this.forgeTheFellowShip();
   }
-}
+};
 
 fellowship.makeEverything();
